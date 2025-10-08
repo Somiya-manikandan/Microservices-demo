@@ -1,0 +1,15 @@
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+orders = [
+    {"id": 1, "item": "Cake", "user_id": 1},
+    {"id": 2, "item": "Coffee", "user_id": 2}
+]
+
+@app.route("/orders", methods=["GET"])
+def get_orders():
+    return jsonify(orders)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5001, debug=True)
